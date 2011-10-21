@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-type" />
+    <meta content="EN" http-equiv="Content-Language" />
+    <meta content="Florian Hanke, florianhanke.com" name="author" />
+    <meta content="phony, ruby, e164, telephone, phone, normalizing, formatting, splitting" name="keywords" />
+    <meta content="Phony: Formatting, Splitting, Normalizing international E164 phone numbers with Ruby." name="abstract" />
+    <meta content="Phony: Formatting, Splitting, Normalizing international E164 phone numbers with Ruby." name="description" />
+    <meta content="index, follow" name="robots" />
+    <meta content="3 days" name="revisit-after" />
+    <link href="./favicon.ico" rel="shortcut icon" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+    <link href="specific.css" rel="stylesheet" type="text/css" />
+    <link href="grid.css" rel="stylesheet" type="text/css" />
+    <title>
+      Phony:
+      E164 International Phone Number Handling
+    </title>
+    <script type="text/javascript">
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20991642-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <a href="http://github.com/floere/phony">
+        <img alt="Fork me on GitHub" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" style="position: fixed; top: -10px; right: 0; border: 0;" />
+      </a>
+      <div class="phony"></div>
+    </div>
+    <div class="container_2">
+      <h1>Phony</h1>
+      <div class="navigation">
+        <a class="current " href="index.html">about</a>
+        <a class="" href="e164.html">E164</a>
+        <a class="" href="examples.html">examples</a>
+        <a class="" href="status.html">status and contributions</a>
+      </div>
+    </div>
+    <div class="container_2">
+      <h2>E164 International Phone Number Handling</h2>
+      <div class="grid_2">
+        <h3>Installation</h3>
+        <pre><code>gem install phony</code></pre>
+        <h3>What is it?</h3>
+        <p>
+          This baby handles the
+          <strong>world's phone numbers</strong>
+          for you, in a
+          <strong>nice and easy</strong>
+          to use way.
+        </p>
+        <p>
+          Read more on the
+          <a href="e164.html">E164</a>
+          recommendation which describes international phone number structure and functionality.
+        </p>
+        <p>
+          The (admittedly crazy)
+          <strong>goal</strong>
+          of this Gem is in the end to be able to handle all phone numbers in the world.
+        </p>
+        <h3>What it does</h3>
+        <h4>Formatting</h4>
+        <p>An austrian number, internationally formatted.</p>
+        <code><pre>Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'</pre></code>
+        <h4>Splitting</h4>
+        <p>The french split numbers like that:</p>
+        <code><pre>Phony.split('33112345678').should == ['33', '1', '12','34','56','78']</pre></code>
+        <h4>Normalizing</h4>
+        <p>American formatting -> E164 normalized format.</p>
+        <code><pre>Phony.normalize('1 (703) 451-5115').should == '17034515115'</pre></code>
+        <p>
+          Interested? There are more
+          <a href="examples.html">examples</a>
+          in the examples tab.
+        </p>
+      </div>
+    </div>
+    <div class="container_2">
+      <div class="grid_2">
+        <div class="decoration"></div>
+      </div>
+    </div>
+    <div class="footer">
+      Brrringggg!
+    </div>
+  </body>
+</html>

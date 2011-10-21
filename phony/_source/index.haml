@@ -1,0 +1,47 @@
+---
+title: E164 International Phone Number Handling
+layout: default
+---
+
+.container_2
+  %h2= h page.title
+  .grid_2
+    %h3 Installation
+    %pre
+      %code
+        gem install phony
+    %h3 What is it?
+    %p
+      This baby handles the
+      %strong world's phone numbers
+      for you, in a
+      %strong nice and easy
+      to use way.
+    %p
+      Read more on the
+      %a{ :href => 'e164.html' } E164
+      recommendation which describes international phone number structure and functionality.
+    %p
+      The (admittedly crazy)
+      %strong goal
+      of this Gem is in the end to be able to handle all phone numbers in the world.
+    %h3 What it does
+    %h4 Formatting
+    %p An austrian number, internationally formatted.
+    %code
+      %pre
+        Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
+    %h4 Splitting
+    %p The french split numbers like that:
+    %code
+      %pre
+        Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
+    %h4 Normalizing
+    %p American formatting -> E164 normalized format.
+    %code
+      %pre
+        Phony.normalize('1 (703) 451-5115').should == '17034515115'
+    %p
+      Interested? There are more
+      %a{ :href => 'examples.html' } examples
+      in the examples tab.

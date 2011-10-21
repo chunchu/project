@@ -1,0 +1,24 @@
+source: _source
+destination: .
+
+sass: true
+haml: true
+
+pygments: true
+permalink: /:year/:month/:day/:title.html
+
+lsi: false # true
+
+months:
+  - January
+  - February
+  - March
+  - April
+  - May
+  - June
+  - July
+  - August
+  - September
+  - October
+  - November
+  - December

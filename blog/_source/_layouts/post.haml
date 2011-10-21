@@ -1,0 +1,78 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :'xml:lang' => "en", :lang => "en" }
+  %head
+    %meta{ :'http-equiv' => "Content-type", :content => "text/html; charset=utf-8" }
+    %link{ :rel => 'shortcut icon', :href => '/blog/favico.ico' }
+    / Ugh.
+    %script{ :type => 'text/javascript', :src => '/blog/javascripts/shjs-0.6/sh_main.min.js' }
+    %link{ :type => 'text/css', :rel => 'stylesheet', :href => '/blog/javascripts/shjs-0.6/css/sh_nedit.min.css' }
+    %link{ :rel => 'stylesheet', :href => '/blog/stylesheets/basic.css', :type => 'text/css' }
+    %link{ :rel => 'stylesheet', :href => '/blog/stylesheets/specific.css', :type => 'text/css' }
+    / Ugh.
+    %script{ :type => 'text/javascript', :src => '/javascripts/shjs-0.6/sh_main.min.js' }
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Droid+Sans+Mono', :rel => 'stylesheet', :type => 'text/css' }
+    %link{ :type => 'text/css', :rel => 'stylesheet', :href => '/javascripts/shjs-0.6/css/sh_nedit.min.css' }
+    %link{ :rel => 'stylesheet', :href => '/stylesheets/basic.css', :type => 'text/css' }
+    %link{ :rel => 'stylesheet', :href => '/stylesheets/specific.css', :type => 'text/css' }
+    %title= page.title
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20991642-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  %body{:onload => 'sh_highlightDocument("/blog/javascripts/shjs-0.6/lang/", ".min.js");'}
+    %ol.nav
+      %li
+        %a{ :href => '/../' } home
+        •
+      %li
+        %a{ :href => '/../blog/' } blog
+        •
+      %li
+        %a{ :href => '/../picky/' } picky
+        •
+      %li
+        %a{ :href => '/../phd/' } phd
+        •
+      %li
+        %a{ :href => '/../phony/' } phony
+        •
+      %li
+        %a{ :href => '/../view_models/' } view models
+    %div.post
+      %h1= page.title
+      .categories
+        = page.categories.join(" / ")
+      //  - page.categories.each do |category|
+      //    %a{ :href => "/blog/category/#{category}" }= category
+      ~ content
+      - if page.next
+        Next
+        %a{ :href => "/blog#{page.next.url}", :title => "Next post: #{page.next.title}" }= page.next.title
+      %br
+      - if page.previous
+        Previous
+        %a.previous{ :href => "/blog#{page.previous.url}", :title => "Previous post: #{page.previous.title}" }= page.previous.title
+      %h2 Comments?
+      - permalink = 'http://florianhanke.com/blog' + page.id + '.html'
+      #disqus_thread
+      :javascript
+        var disqus_shortname = 'florianhanke';
+        var disqus_developer = location.host.match(/\.dev$|^localhost/) ? 1 : 0;
+        var disqus_identifier = '#{page.id}';
+        var disqus_url = '#{permalink}';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      %noscript
+        Please enable JavaScript to view the
+        %a{ :href => "http://disqus.com/?ref_noscript" } comments powered by Disqus.

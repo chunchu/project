@@ -1,0 +1,123 @@
+---
+title: Enterprise Ready
+layout: enterprise
+---
+
+.container_2
+  %h2= h page.title
+  .grid_2.white
+    %p
+      Yes.
+    %h3 Surely you're kidding!
+    %p
+      Don't be deceived by the cute appearance! Picky is a tough little bastard.
+    %p
+      Picky is in use in a telephone search web application,
+      = succeed(',') do
+        %a{ :href => '#use_case_1' } see use case 1
+      where it can handle more than 10 million moderately complex search requests per day. 
+.container_2
+  %h2 Enterprisey Features
+  .grid_1
+    %h3 Stability
+    %p
+      Codewise, Picky is tested by around 900 unit and integration specs. Code size is extremely small (~4000 loc), making it easy to maintain.
+    %p
+      Picky uses Ruby and in the case described used
+      = succeed('.') do
+        %a{ :href => 'http://unicorn.bogomips.org/' }Unicorn
+      We bombarded three servers, running a Unicorn with 8 children each, using ab.
+    %p
+      After filling the Unicorn request buffers, Picky predictably went down, but recuperating like fresh spring dew after the torrent was over.
+    %p
+      In the mentioned project, Picky has been running without fail now for more than a year. It has been shown to be totally maintenance free.
+    %h3 Scalability (requests)
+    %p
+      Picky scales very well with your data.
+    %p
+      We recommend setting up a shared /index directory where one Picky indexes, and the others reload the indexes after restarting.
+    %p
+      Then, add the server to your proxy of choice,
+      = succeed(',') do
+        %a{ :href => 'http://nginx.org/en/' } nginx
+      %a{ :href => 'http://www.varnish-cache.org/' } varnish
+      etc.
+    %p
+      We've added two servers to the first one like this, without problems. We just needed to add the new server to the varnish front end round robin list.
+    %h3 Scalability (data)
+    %p
+      Picky is a combinatorial search engine. Meaning: All the data needs to be available for combining.
+    %p
+      Admittedly, regarding data,
+      %strong if
+      you have exponential data growth, we do not recommend to use Picky.
+    %p
+      If your data is slowly growing (linearly), we recommend to use Picky.
+      
+  .grid_1
+    %h3 Speed
+    %p
+      Most people think – since it is written in Ruby – it must be slow.
+    %p
+      That attitude usually stops after seeing it in production or trying the example (in
+      = succeed(').') do
+        %a{ :href => 'getting_started.html' } getting started
+    %p
+      Lots of consideration went into writing performant Ruby code. For example, each request has a very small memory footprint.
+    %p
+      Around 100 specs test for possible performance reductions. Critical parts have been rewritten in C, giving it the edge it needs.
+    %h3 Modularity
+    %p
+      From the ground up, Picky is designed to be very flexible.
+    %p
+      Search requests can be routed to any combination of indexes. If you need customized tokenizers etc. you can easily implement them.
+    %p
+      Also, it supports quite a few data sources, and new data sources can be easily added.
+.container_2
+  %h2 Use Cases
+  .grid_1
+    %h3#use_case_1 Case 1: Telephone Search
+    %p
+      Picky was used in a telephone search engine, where it was possible to search for address, phone number, names, organization, and many other search features.
+    %h3 Amount of Data
+    %p
+      Around 150 Million data points. A data point is a phone number, or a name, or an address.
+    %p
+      Imagine a table with 10 million records, with 15 varchar fields each.
+    %h3 Features
+    %p
+      Almost all data categories (exceptions: zipcode, partially: phone numbers) used a full partial search. Five categories were indexed also using a moderately configured (phonetic) similarity index.
+    %h3 Memory usage
+    %p
+      Memory usage was a bit higher than expected, since phone numbers are unique, requiring space. Also, we used a lot of partial indexes, increasing the memory need greatly. The indexes in each server needed 10 GB.
+    %h3 Speed
+    %p
+      Using more complicated than average queries, Picky on 3 virtual servers, each with 8 processes on 2 cores each (totalling 6 cores), peaked at 120 requests per second.
+    %p
+      With relatively simple queries, Picky peaked at about 500-1000 requests per second (around 1.3 billion requests per month).
+    %p
+      We noticed a high variability of answer times, probably due to the combinatorial nature of Picky. From 0.00001 seconds up to 2 seconds (in extremely hard and rare cases). Due to this fact, using Unicorn paid off very much.
+    %h3 Indexing speed
+    %p
+      We had a rather complicating join to combine the data for use in Picky. Also, a lot of the data needed to be cleaned and prepared.
+    %p
+      Using a single server with 2 processors, we needed a bit more than an hour to prepare the indexes for Picky.
+    %p
+      We were not too happy about the speed, but running the indexing process every night did at least not disturb normal operations. 
+    %p
+      Also, we got it almost twice as fast by Picky using all the available processors.
+    %h3 Final statements
+    %p
+      Picky is relatively memory hungry. This is in part due to its non-specific index (useable with any data).
+    %p
+      Indexing performance could be better when using lots of partial indexes. It cannot (yet) be used if indexes need to be up to date instantly.
+    %p
+      On the plus side, it is extremely fast and stable.
+    %p
+      It offers a unique user interface that people were quick to learn and use.
+    %p
+      Also, we noted that requests by our management were very easy to implement, even if the requests seemed to be very hard to build in at first sight. This is due to Picky's very modular nature.
+  .grid_1
+    %h2#use_case_2 Case 2: Your use case!
+    %p
+      %a{ :href => 'http://github.com/inbox/new/floere' } Write me, happy to hear it :)

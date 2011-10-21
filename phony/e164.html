@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-type" />
+    <meta content="EN" http-equiv="Content-Language" />
+    <meta content="Florian Hanke, florianhanke.com" name="author" />
+    <meta content="phony, ruby, e164, telephone, phone, normalizing, formatting, splitting" name="keywords" />
+    <meta content="Phony: Formatting, Splitting, Normalizing international E164 phone numbers with Ruby." name="abstract" />
+    <meta content="Phony: Formatting, Splitting, Normalizing international E164 phone numbers with Ruby." name="description" />
+    <meta content="index, follow" name="robots" />
+    <meta content="3 days" name="revisit-after" />
+    <link href="./favico.ico" rel="shortcut icon" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+    <link href="specific.css" rel="stylesheet" type="text/css" />
+    <link href="grid.css" rel="stylesheet" type="text/css" />
+    <title>
+      Phony:
+      E164
+    </title>
+    <script type="text/javascript">
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20991642-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <a href="http://github.com/floere/phony">
+        <img alt="Fork me on GitHub" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" style="position: fixed; top: -10px; right: 0; border: 0;" />
+      </a>
+      <div class="phony"></div>
+    </div>
+    <div class="container_2">
+      <h1>Phony</h1>
+      <div class="navigation">
+        <a class="" href="index.html">about</a>
+        <a class="current " href="e164.html">E164</a>
+        <a class="" href="examples.html">examples</a>
+        <a class="" href="status.html">status and contributions</a>
+      </div>
+    </div>
+    <div class="container_2">
+      <h2>E164</h2>
+      <div class="grid_2">
+        <h3>What is E164?</h3>
+        <p>
+          It's basically a numbering scheme for international phone numbers.
+        </p>
+        <p>
+          A phone number is a prefix code, divided into:
+          <ol>
+            <li>
+              <strong>Country Code</strong>
+              (1-3 digits)
+            </li>
+            <li>
+              <strong>National Number</strong>
+              (15 minus Country Code digits)
+            </li>
+          </ol>
+        </p>
+        <p>
+          A national number may be split into a
+          <ol>
+            <li>
+              <strong>National Destination Code</strong>
+              (Optional, any number of digits)
+            </li>
+            <li>
+              <strong>Local Destination Code</strong>
+              (Rest of the digits, up to 15 digits total)
+            </li>
+          </ol>
+        </p>
+        <p>
+          Countries have
+          <strong>lots of different formats and parsing schemes.</strong>
+          This is
+          <strong>what Phony handles for you</strong>
+          and where it shines.
+        </p>
+        <p>
+          The
+          <a href="http://en.wikipedia.org/wiki/E.164">Wikipedia entry</a>
+          has much more information.
+        </p>
+        <p>
+          Check out
+          <a href="examples.html">all the examples</a>
+          to see what it does.
+        </p>
+      </div>
+    </div>
+    <div class="container_2">
+      <div class="grid_2">
+        <div class="decoration"></div>
+      </div>
+    </div>
+    <div class="footer">
+      Brrringggg!
+    </div>
+  </body>
+</html>

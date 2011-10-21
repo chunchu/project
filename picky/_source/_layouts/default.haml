@@ -1,0 +1,77 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :'xml:lang' => "en", :lang => "en" }
+  %head
+    %meta{ :'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8' }
+    %meta{ :'http-equiv' => 'Content-Language', :content => 'EN' }
+    %meta{ :name => 'author', :content => 'Florian Hanke, florianhanke.com' }
+    %meta{ :name => 'keywords', :content => 'picky, ruby, single field, semantic small text, search engine' }
+    %meta{ :name => 'abstract', :content => 'Picky: The fast and easy to configure Ruby search engine' }
+    %meta{ :name => 'description', :content => 'Picky: The fast and easy to configure Ruby search engine. Offers a server, a client, and a statistics interface.' }
+    %meta{ :name => 'robots', :content => 'index, follow' }
+    %meta{ :name => 'revisit-after', :content => '3 days' }
+    %link{ :rel => 'shortcut icon', :href => 'favicon.ico' }
+    %link{ :rel => 'stylesheet', :href => 'stylesheets/basic.css', :type => 'text/css' }
+    %link{ :rel => 'stylesheet', :href => 'stylesheets/specific.css', :type => 'text/css' }
+    %link{ :rel => 'stylesheet', :href => 'stylesheets/grid.css', :type => 'text/css' }
+    %link{ :rel => 'stylesheet', :href => 'stylesheets/colors.css', :type => 'text/css' }
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <script type="text/javascript">function plusone_vote(obj){_gaq.push(['_trackEvent','plusone',obj.state]);}</script>
+    %title
+      Picky:
+      = h page.title
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20991642-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  %body
+    .header
+      %a{ :href => 'http://github.com/floere/picky' }
+        %img{ :style => 'position: fixed; top: -10px; right: -10px; border: 0; z-index: 1;', :src => 'images/forkme.png', :alt => 'Fork me on GitHub' }
+    .picky{ :title => 'Happy Picky (drawn on iPhone)' }
+    .container_2
+      .social
+        <div class="g-plusone" data-size="medium" callback="plusone_vote" data-href="http://florianhanke.com/picky/"></div>
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://florianhanke.com/picky/" data-text="Picky: The fast Ruby semantic search engine" data-count="none" data-via="hanke">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      %h1 Picky
+      .navigation
+        - def class_for(url, klass = ''); if page.url == url then "current #{klass}" else klass end end
+        %a{ :href => 'index.html', :class => class_for('/index.html') } about
+        %a{ :href => 'details.html', :class => class_for('/details.html') } semantic text?
+        %a{ :href => 'getting_started.html', :class => class_for('/getting_started.html') } get started
+        %a{ :href => 'features.html', :class => class_for('/features.html') } features
+
+        %a{ :href => 'enterprise.html', :class => class_for('/enterprise.html', 'right') } enterprise?
+        %a{ :href => 'status.html', :class => class_for('/status.html', 'right') } status/contributions
+        %a{ :href => 'videos.html', :class => class_for('/videos.html', 'right') } videos
+        %a{ :href => 'documentation.html', :class => class_for('/documentation.html', 'right') } docs
+    = content
+    .license
+      Logos and all images are
+      %a{ :href => 'http://creativecommons.org/licenses/by/1.0/' } CC Attribution
+      licensed to Florian Hanke.
+    .footer
+    :javascript
+      var picky = document.getElementsByClassName('picky')[0];
+      var footer = document.getElementsByClassName('footer')[0];
+
+      var position = 0;
+
+      var movePicky = function() {
+        if (position == -2780) {
+          position = 0;
+        } else {
+          position -= 20;
+          setTimeout(movePicky,5);
+        }
+        picky.style.backgroundPositionY = position + "px";
+      }
+
+      footer.onclick = function() {
+        setTimeout(movePicky,5);
+      };
